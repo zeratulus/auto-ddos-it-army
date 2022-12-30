@@ -40,7 +40,7 @@ checkInetConnection() {
 }
 
 # Wait for internet connection
-isInternet = false;
+isInternet = false
 while [ isInternet == false ]; do
   isInternet = checkInetConnection;
   sleep 5
@@ -48,7 +48,7 @@ done
 
 if [ isInternet ]; then
   echo "Connected to internet";
-  protonvpn-cli c
+  protonvpn-cli c -f
   /home/user/db1000n/db1000n
 else
   echo "No internet connection";
