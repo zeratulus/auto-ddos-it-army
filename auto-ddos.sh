@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-connected_to_internet() {
+checkInetConnection() {
   test_urls="\
   https://www.google.com/ \
   https://www.microsoft.com/ \
@@ -39,13 +39,17 @@ connected_to_internet() {
   return 1
 }
 
+# Wait for internet connection
 isInternet = false;
 while [ isInternet == false ]; do
-  isInternet = connected_to_internet;
+  isInternet = checkInetConnection;
+  sleep 5
 done
 
-if isInternet then
-  echo "Connected to internet"
+if [ isInternet ]; then
+  echo "Connected to internet";
+  protonvpn-cli c
+  /home/user/db1000n/db1000n
 else
-  echo "No internet connection"
+  echo "No internet connection";
 fi
