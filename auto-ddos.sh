@@ -48,6 +48,8 @@ done
 
 if [ isInternet ]; then
   echo "Connected to internet";
+  ~/db1000n/install.sh
+  chmod +x ~/db1000n/db1000n
   protonvpn-cli c --cc JP
   ~/db1000n/db1000n --user-id=302116940
 else
