@@ -41,12 +41,12 @@ checkInetConnection() {
 
 # Wait for internet connection
 isInternet=false
-while [ isInternet == false ]; do
-  isInternet = checkInetConnection;
+while [ $isInternet == false ]; do
+  isInternet=checkInetConnection;
   sleep 5
 done
 
-if [ isInternet ]; then
+if [ $isInternet ]; then
   echo "Connected to internet";
   ~/db1000n/install.sh
   chmod +x ~/db1000n/db1000n
