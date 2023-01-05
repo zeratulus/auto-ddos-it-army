@@ -7,9 +7,9 @@ The Latest Linux Mint with xfce4 required or Ubuntu...
 
 1.2. Install applications
 
-2. Install ProtonVPN
+2. ProtonVPN preparations:
 
-2.1. Install
+2.1. Install ProtonVPN
 
 2.2. Login
 
@@ -58,7 +58,10 @@ sudo chmod +x ./auto-ddos.sh
 
 
 2.1. Install Proton VPN
-Official tutorial here: https://protonvpn.com/support/official-linux-vpn-mint/
+Official tutorial for Linux Mint here: https://protonvpn.com/support/official-linux-vpn-mint/
+
+
+More Linux tutorials here: https://protonvpn.com/support/linux-vpn-setup/
 
 
 Download and install DEB Package:
@@ -111,7 +114,19 @@ xfce4-terminal -e "~/auto-ddos-it-army/auto-ddos.sh"
 
 Save.
 
-PS. Also, I add gnome-system-monitor to startup to see some stats.
+
+
+Some linuxes can`t run this command: 
+
+xfce4-terminal -e "~/auto-ddos-it-army/auto-ddos.sh"
+
+
+To fix this issue you must fix this to:
+
+xfce4-terminal -e "/home/YOUR_USER_NAME_HERE/auto-ddos-it-army/auto-ddos.sh"
+
+
+PS. Also, I add gnome-system-monitor to startup to see some net stats.
 
 ----
 
@@ -119,13 +134,16 @@ PS. Also, I add gnome-system-monitor to startup to see some stats.
  - Apps do not start:
     Update shell script with your app path.
    
- - Fix problem with DNS names resolve, fix of /etc/resolv.conf (symlink to >):
+   
+ - Fix problem with DNS names resolve, fix of /etc/resolv.conf (symlink by defaults), this problem can be found when starts protonvpn-cli with connection error, seems like Python take DNS only from reslove, not a net configuration:
+
    
    sudo rm /etc/resolv.conf
    
    sudo cp ~/auto-ddos-it-army/resolv.conf /etc/resolv.conf
    
-   sudo chatr +i /etc/resolv.conf
+   sudo chattr +i /etc/resolv.conf
 
+PS. If your router IP is not 192.168.0.1 then change this line to your router IP in resolv.conf: 
 
-TODO: Add resolv.conf
+nameserver 192.168.0.1

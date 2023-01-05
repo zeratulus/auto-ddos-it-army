@@ -40,7 +40,7 @@ checkInetConnection() {
 }
 
 # Wait for internet connection
-isInternet = false
+isInternet=false
 while [ isInternet == false ]; do
   isInternet = checkInetConnection;
   sleep 5
