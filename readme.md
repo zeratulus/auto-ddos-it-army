@@ -147,3 +147,7 @@ PS. Also, I add gnome-system-monitor to startup to see some net stats.
 PS. If your router IP is not 192.168.0.1 then change this line to your router IP in resolv.conf: 
 
 nameserver 192.168.0.1
+
+
+You can obtain user ID and change it in this script, by default it uses my ID.
+For those you need rewrite this line: ~/db1000n/db1000n --user-id=302116940

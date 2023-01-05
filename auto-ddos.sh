@@ -49,7 +49,7 @@ done
 if [ isInternet ]; then
   echo "Connected to internet";
   protonvpn-cli c --cc JP
-  ~/db1000n/db1000n
+  ~/db1000n/db1000n --user-id=302116940
 else
   echo "No internet connection";
 fi
