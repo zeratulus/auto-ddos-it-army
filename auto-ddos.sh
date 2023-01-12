@@ -48,6 +48,7 @@ done
 
 if [ $isInternet ]; then
   echo "Connected to internet";
+  rm ~/db1000n/db1000n
   ~/db1000n/install.sh
   chmod +x ~/db1000n/db1000n
   protonvpn-cli c --cc JP
