@@ -1,42 +1,13 @@
 #!/usr/bin/env bash
 
 checkInetConnection() {
-  test_urls="\
-  https://www.google.com/ \
-  https://www.microsoft.com/ \
-  https://www.cloudflare.com/ \
-  "
+  wget -q --spider https://google.com
 
-  processes="0"
-  pids=""
+  if [ $? -eq 0 ]; then
+      return 1;
+  fi
 
-  for test_url in $test_urls; do
-    curl --silent --head "$test_url" > /dev/null &
-    pids="$pids $!"
-    processes=$(($processes + 1))
-  done
-
-  while [ $processes -gt 0 ]; do
-    for pid in $pids; do
-      if ! ps | grep "^[[:blank:]]*$pid[[:blank:]]" > /dev/null; then
-        # Process no longer running
-        processes=$(($processes - 1))
-        pids=$(echo "$pids" | sed --regexp-extended "s/(^| )$pid($| )/ /g")
-
-        if wait $pid; then
-          # Success! We have a connection to at least one public site, so the
-          # internet is up. Ignore other exit statuses.
-          kill -TERM $pids > /dev/null 2>&1 || true
-          wait $pids
-          return 0
-        fi
-      fi
-    done
-    # wait -n $pids # Better than sleep, but not supported on all systems
-    sleep 0.1
-  done
-
-  return 1
+  return 0;
 }
 
 # Wait for internet connection
@@ -48,11 +19,8 @@ done
 
 if [ $isInternet ]; then
   echo "Connected to internet";
-  rm ~/db1000n/db1000n
-  ~/db1000n/install.sh
   chmod +x ~/db1000n/db1000n
-  protonvpn-cli c --cc JP
+  protonvpn-cli c -f #connect to fastest server to your location
+  #protonvpn-cli c --cc JP #connect to fastest server in country
   ~/db1000n/db1000n --user-id=302116940
-else
-  echo "No internet connection";
 fi
