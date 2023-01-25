@@ -11,11 +11,13 @@ checkInetConnection() {
 }
 
 # Wait for internet connection
-isInternet=false
-while [ $isInternet == false ]; do
-  isInternet=checkInetConnection;
-  sleep 5
-done
+#isInternet=false
+#while [ $isInternet == false ]; do
+#  isInternet=checkInetConnection;
+#  sleep 5
+#done
+
+sleep 360;
 
 if [ $isInternet ]; then
   echo "Connected to internet";
