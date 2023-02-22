@@ -1,13 +1,11 @@
 #!/usr/bin/env bash
 
 checkInetConnection() {
-  wget -q --spider https://google.com
-
-  if [ $? -eq 0 ]; then
-      return 1;
-  fi
-
-  return 0;
+if ping -q -c 1 -W 1 8.8.8.8 > /dev/null; then
+  return 1
+else
+  return 0
+fi
 }
 
 #sleep 360;
