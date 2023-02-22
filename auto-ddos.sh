@@ -22,7 +22,9 @@ done
 if [ $isInternet ]; then
   echo "Connected to internet";
   chmod +x ~/db1000n/db1000n
-#  protonvpn-cli c -f          #Connect to fastest server to your location
-  protonvpn-cli c --cc JP    #Connect to fastest server in country JP - Japan
+  #protonvpn-cli c -f          #Connect to fastest server to your location
+  #protonvpn-cli c --tor       #Connect to the fastest Tor server (Plus and Visionary users only)
+  protonvpn-cli c --cc JP      #Connect to fastest server in country JP - Japan
+
   ~/db1000n/db1000n --user-id=302116940
 fi
