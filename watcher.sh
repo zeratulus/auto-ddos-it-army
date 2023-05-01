@@ -6,19 +6,19 @@
 NETIFACE=$(route | grep '^default' | grep -o '[^ ]*$' | grep enp);
 WATCHER=true;
 COUNTER=0;
-MAX_TRIES=10;
-CHECK=6144;
+MAX_TRIES=11;
+RESET_SPEED=9999;
 
 while [ $WATCHER ]; do
   sleep 5;
 
   SPEED=$("$PWD"/ifstat "$NETIFACE" | grep "$NETIFACE" | grep -Eo '[0-9+]{1,99} [0-9+]{1,99}' | tail -1 | awk '{print $1}');
 
-  if [ "$SPEED" -lt "$CHECK" ]; then
+  if [ "$SPEED" -lt "$RESET_SPEED" ]; then
     ((++COUNTER));
   fi
 
-  if [ "$SPEED" -gt "$CHECK" ]; then
+  if [ "$SPEED" -gt "$RESET_SPEED" ]; then
     COUNTER=0;
   fi
 
