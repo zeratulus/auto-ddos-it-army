@@ -7,7 +7,7 @@ NETIFACE=$(route | grep '^default' | grep -o '[^ ]*$' | grep enp);
 WATCHER=true;
 COUNTER=0;
 MAX_TRIES=10;
-CHECK=4096;
+CHECK=6144;
 
 while [ $WATCHER ]; do
   sleep 5;
