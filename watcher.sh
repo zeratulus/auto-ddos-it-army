@@ -3,7 +3,7 @@
 #Main idea of Watcher is auto restart of PC when VPN connection or DDoS is gone to up DDoS of russian bastards!
 
 #Get default (main) network interface
-NETIFACE=$(route | grep '^default' | grep -o '[^ ]*$');
+NETIFACE=$(route | grep '^default' | grep -o '[^ ]*$' | grep enp);
 WATCHER=true;
 COUNTER=0;
 MAX_TRIES=10;
