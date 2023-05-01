@@ -20,3 +20,6 @@ cd ./db1000n
 sudo chmod +x ./install.sh
 ./install.sh
 sudo chmod +x ./db1000n
+
+cp ./ifstat ~/ifstat
+sudo chmod +x ~/ifstat
