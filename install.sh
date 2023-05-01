@@ -2,7 +2,7 @@
 
 sudo apt update
 sudo apt upgrade
-sudo apt install git vim curl gnome-system-monitor
+sudo apt install git vim curl gnome-system-monitor net-tools
 
 sudo chmod +x ./auto-ddos.sh
 sudo chmod +x ./start-ddos.sh
