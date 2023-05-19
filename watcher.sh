@@ -7,13 +7,13 @@ NETIFACE=$(route | grep '^default' | grep -o '[^ ]*$' | grep enp);
 WATCHER=true;
 COUNTER=0;
 MAX_TRIES=11;
-RESET_SPEED=9999;
+RESET_SPEED=100;
 
 while [ $WATCHER ]; do
   sleep 5;
 
-  SPEED=$("$PWD"/ifstat "$NETIFACE" | grep "$NETIFACE" | grep -Eo '[0-9+]{1,99} [0-9+]{1,99}' | tail -1 | awk '{print $1}');
-
+  FLOAT_SPEED_OUT=$(ifstat -i "$NETIFACE" 1 1 | grep -Eo '[0-9+]{1,99}.[0-9+]{1,99}' | tail -1);
+  SPEED=${FLOAT_SPEED_OUT%.*}
   if [ "$SPEED" -lt "$RESET_SPEED" ]; then
     ((++COUNTER));
   fi

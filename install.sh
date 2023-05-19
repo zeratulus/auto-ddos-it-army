@@ -2,7 +2,7 @@
 
 sudo apt update
 sudo apt upgrade
-sudo apt install git vim curl gnome-system-monitor net-tools
+sudo apt install -y git vim curl gnome-system-monitor net-tools ifstat
 
 sudo chmod +x ./auto-ddos.sh
 sudo chmod +x ./start-ddos.sh
@@ -11,7 +11,7 @@ sudo chmod +x ./start-ddos.sh
 curl -o ./protonvpn-repo.deb https://repo.protonvpn.com/debian/dists/stable/main/binary-all/protonvpn-stable-release_1.0.3_all.deb
 sudo dpkg -i ./protonvpn-repo.deb
 sudo apt update
-sudo apt install protonvpn gnome-shell-extension-appindicator gir1.2-appindicator3-0.1
+sudo apt install -y protonvpn gnome-shell-extension-appindicator gir1.2-appindicator3-0.1
 
 #db1000n
 cd ~
@@ -20,6 +20,3 @@ cd ./db1000n
 sudo chmod +x ./install.sh
 ./install.sh
 sudo chmod +x ./db1000n
-
-cp ./ifstat ~/ifstat
-sudo chmod +x ~/ifstat
