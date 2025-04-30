@@ -1,5 +1,7 @@
 [![Stand With Ukraine](https://raw.githubusercontent.com/vshymanskyy/StandWithUkraine/main/banner2-direct.svg)](https://vshymanskyy.github.io/StandWithUkraine/)
 
+This is very very old method... But it helps me to do some stuff some time ago... Just for memories...
+
 The Latest Linux Mint with xfce4 required or Ubuntu...
 
 
